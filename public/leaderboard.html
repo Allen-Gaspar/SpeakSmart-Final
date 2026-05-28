@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - SPEAKSMART</title>
+    <meta name="description" content="See how you rank among other SPEAKSMART learners worldwide.">
+    <link rel="stylesheet" href="/styles/globals.css">
+</head>
+<body class="font-sans antialiased min-h-screen bg-background text-foreground">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 glass">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="/" class="flex items-center gap-2">
+                    <div class="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center glow-sm">
+                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xl font-bold gradient-text">SPEAKSMART</span>
+                </a>
+
+                <div class="hidden md:flex items-center gap-6">
+                    <a href="/languages.html" class="text-muted-foreground hover:text-foreground transition-colors">Languages</a>
+                    <a href="/lessons.html" class="text-muted-foreground hover:text-foreground transition-colors">Lessons</a>
+                    <div id="auth-nav" class="flex items-center gap-3"></div>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-secondary transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden glass border-t border-border">
+            <div class="px-4 py-4 space-y-3">
+                <a href="/languages.html" class="block px-3 py-2 rounded-lg hover:bg-secondary transition-colors">Languages</a>
+                <a href="/lessons.html" class="block px-3 py-2 rounded-lg hover:bg-secondary transition-colors">Lessons</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="min-h-screen pt-24 pb-12 px-4">
+        <div class="max-w-4xl mx-auto">
+            <!-- Header -->
+            <div class="mb-8 text-center">
+                <h1 class="text-4xl font-bold mb-4">Global Leaderboard</h1>
+                <p class="text-lg text-muted-foreground">Compete with learners around the world</p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="flex gap-4 mb-8 border-b border-border">
+                <button class="px-4 py-3 font-semibold text-primary border-b-2 border-primary">This Month</button>
+                <button class="px-4 py-3 font-semibold text-muted-foreground hover:text-foreground transition-colors">All Time</button>
+            </div>
+
+            <!-- Leaderboard Table -->
+            <div class="glass rounded-2xl overflow-hidden">
+                <table class="w-full">
+                    <thead class="bg-secondary/50 border-b border-border">
+                        <tr>
+                            <th class="text-left px-6 py-4 font-semibold">Rank</th>
+                            <th class="text-left px-6 py-4 font-semibold">User</th>
+                            <th class="text-right px-6 py-4 font-semibold">XP Points</th>
+                            <th class="text-right px-6 py-4 font-semibold">Streak</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-border hover:bg-secondary/30 transition-colors bg-primary/5">
+                            <td class="px-6 py-4 text-2xl font-bold gradient-text">#1</td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">🥇</div>
+                                    <span class="font-semibold">Your Name</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-right font-semibold">5,340</td>
+                            <td class="px-6 py-4 text-right">
+                                <span class="px-3 py-1 rounded-full bg-accent/20 text-accent">15 days 🔥</span>
+                            </td>
+                        </tr>
+
+                        <tr class="border-b border-border hover:bg-secondary/30 transition-colors">
+                            <td class="px-6 py-4 text-2xl font-bold text-muted-foreground">#2</td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center">🥈</div>
+                                    <span class="font-semibold">Alex Johnson</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-right font-semibold">5,120</td>
+                            <td class="px-6 py-4 text-right">
+                                <span class="px-3 py-1 rounded-full bg-secondary/50">12 days</span>
+                            </td>
+                        </tr>
+
+                        <tr class="border-b border-border hover:bg-secondary/30 transition-colors">
+                            <td class="px-6 py-4 text-2xl font-bold text-muted-foreground">#3</td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-destructive/20 flex items-center justify-center">🥉</div>
+                                    <span class="font-semibold">Maria Rodriguez</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-right font-semibold">4,890</td>
+                            <td class="px-6 py-4 text-right">
+                                <span class="px-3 py-1 rounded-full bg-secondary/50">9 days</span>
+                            </td>
+                        </tr>
+
+                        <tr class="border-b border-border hover:bg-secondary/30 transition-colors">
+                            <td class="px-6 py-4 text-muted-foreground font-semibold">#4</td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-muted flex items-center justify-center">👤</div>
+                                    <span>Chen Wei</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-right font-semibold">4,650</td>
+                            <td class="px-6 py-4 text-right">
+                                <span class="px-3 py-1 rounded-full bg-secondary/50">7 days</span>
+                            </td>
+                        </tr>
+
+                        <tr class="border-b border-border hover:bg-secondary/30 transition-colors">
+                            <td class="px-6 py-4 text-muted-foreground font-semibold">#5</td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-muted flex items-center justify-center">👤</div>
+                                    <span>Sophie Dupont</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-right font-semibold">4,420</td>
+                            <td class="px-6 py-4 text-right">
+                                <span class="px-3 py-1 rounded-full bg-secondary/50">5 days</span>
+                            </td>
+                        </tr>
+
+                        <tr class="hover:bg-secondary/30 transition-colors">
+                            <td class="px-6 py-4 text-muted-foreground font-semibold">#6</td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-muted flex items-center justify-center">👤</div>
+                                    <span>Marco Rossi</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-right font-semibold">4,200</td>
+                            <td class="px-6 py-4 text-right">
+                                <span class="px-3 py-1 rounded-full bg-secondary/50">3 days</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Stats Summary -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
+                <div class="glass rounded-2xl p-6 text-center">
+                    <p class="text-sm text-muted-foreground mb-2">Total Players</p>
+                    <p class="text-3xl font-bold gradient-text">12,453</p>
+                </div>
+                <div class="glass rounded-2xl p-6 text-center">
+                    <p class="text-sm text-muted-foreground mb-2">Active This Month</p>
+                    <p class="text-3xl font-bold gradient-text">4,821</p>
+                </div>
+                <div class="glass rounded-2xl p-6 text-center">
+                    <p class="text-sm text-muted-foreground mb-2">Your Rank</p>
+                    <p class="text-3xl font-bold gradient-text">#1</p>
+                </div>
+                <div class="glass rounded-2xl p-6 text-center">
+                    <p class="text-sm text-muted-foreground mb-2">Your Percentile</p>
+                    <p class="text-3xl font-bold gradient-text">Top 1%</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-border bg-card/50 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
+            <p class="text-sm text-muted-foreground">
+                2026 SPEAKSMART. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="/js/navbar.js"></script>
+</body>
+</html>
