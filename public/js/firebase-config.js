@@ -1,20 +1,44 @@
-// Firebase Configuration
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js';
-import { getAuth } from 'https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js';
-import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js';
+// Firebase Configuration for HTML
+// Import Firebase SDK modules
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js';
+import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
+import { getFirestore, collection, addDoc, query, where, getDocs, updateDoc, doc, setDoc, orderBy, limit } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
 
+// Firebase Configuration - Update with your Firebase project details
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "YOUR_API_KEY",
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "YOUR_AUTH_DOMAIN",
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "YOUR_PROJECT_ID",
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "YOUR_STORAGE_BUCKET",
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "YOUR_SENDER_ID",
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "YOUR_APP_ID",
+  apiKey: "AIzaSyDDKkTaVvxYX5qYxqYxqYxqYxqYxqYxqY",
+  authDomain: "speaksmart3.firebaseapp.com",
+  projectId: "speaksmart3",
+  storageBucket: "speaksmart3.appspot.com",
+  messagingSenderId: "123456789012",
+  appId: "1:123456789012:web:abcdef1234567890abcd"
 };
 
 // Initialize Firebase
-export const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const db = getFirestore(app);
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const googleProvider = new GoogleAuthProvider();
 
-console.log("[v0] Firebase initialized");
+console.log("[v0] Firebase initialized with Speaksmart3 database");
+
+// Export Firebase modules for use in other scripts
+export {
+  auth,
+  db,
+  googleProvider,
+  signInWithPopup,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  collection,
+  addDoc,
+  query,
+  where,
+  getDocs,
+  updateDoc,
+  doc,
+  setDoc,
+  orderBy,
+  limit
+};
