@@ -1,0 +1,139 @@
+@import 'tailwindcss';
+
+:root {
+  --background: oklch(0.13 0.02 280);
+  --foreground: oklch(0.98 0.01 280);
+  --card: oklch(0.16 0.025 280);
+  --card-foreground: oklch(0.98 0.01 280);
+  --popover: oklch(0.16 0.025 280);
+  --popover-foreground: oklch(0.98 0.01 280);
+  --primary: oklch(0.65 0.25 280);
+  --primary-foreground: oklch(0.98 0.01 280);
+  --secondary: oklch(0.22 0.03 280);
+  --secondary-foreground: oklch(0.95 0.01 280);
+  --muted: oklch(0.20 0.02 280);
+  --muted-foreground: oklch(0.65 0.02 280);
+  --accent: oklch(0.55 0.20 320);
+  --accent-foreground: oklch(0.98 0.01 280);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.98 0.01 280);
+  --border: oklch(0.28 0.04 280);
+  --input: oklch(0.22 0.03 280);
+  --ring: oklch(0.65 0.25 280);
+  --chart-1: oklch(0.65 0.25 280);
+  --chart-2: oklch(0.60 0.20 200);
+  --chart-3: oklch(0.55 0.20 320);
+  --chart-4: oklch(0.70 0.18 140);
+  --chart-5: oklch(0.65 0.22 50);
+  --radius: 0.75rem;
+  --sidebar: oklch(0.14 0.02 280);
+  --sidebar-foreground: oklch(0.98 0.01 280);
+  --sidebar-primary: oklch(0.65 0.25 280);
+  --sidebar-primary-foreground: oklch(0.98 0.01 280);
+  --sidebar-accent: oklch(0.22 0.03 280);
+  --sidebar-accent-foreground: oklch(0.98 0.01 280);
+  --sidebar-border: oklch(0.28 0.04 280);
+  --sidebar-ring: oklch(0.65 0.25 280);
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Courier New', monospace;
+}
+
+.dark {
+  --background: oklch(0.13 0.02 280);
+  --foreground: oklch(0.98 0.01 280);
+  --card: oklch(0.16 0.025 280);
+  --card-foreground: oklch(0.98 0.01 280);
+  --popover: oklch(0.16 0.025 280);
+  --popover-foreground: oklch(0.98 0.01 280);
+  --primary: oklch(0.65 0.25 280);
+  --primary-foreground: oklch(0.98 0.01 280);
+  --secondary: oklch(0.22 0.03 280);
+  --secondary-foreground: oklch(0.95 0.01 280);
+  --muted: oklch(0.20 0.02 280);
+  --muted-foreground: oklch(0.65 0.02 280);
+  --accent: oklch(0.55 0.20 320);
+  --accent-foreground: oklch(0.98 0.01 280);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.98 0.01 280);
+  --border: oklch(0.28 0.04 280);
+  --input: oklch(0.22 0.03 280);
+  --ring: oklch(0.65 0.25 280);
+}
+
+* {
+  border-color: var(--border);
+  outline-color: var(--ring);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+html {
+  background-color: var(--background);
+}
+
+/* Custom styles for SPEAKSMART */
+.glass {
+  background-color: hsl(from var(--card) h s l / 0.8);
+  backdrop-filter: blur(40px);
+  border: 1px solid hsl(from var(--border) h s l / 0.5);
+}
+
+.gradient-text {
+  background: linear-gradient(to right, var(--primary), var(--accent), var(--primary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glow {
+  box-shadow: 0 0 40px -10px oklch(0.65 0.25 280 / 0.5);
+}
+
+.glow-sm {
+  box-shadow: 0 0 20px -5px oklch(0.65 0.25 280 / 0.4);
+}
+
+/* Animations */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+/* Utility classes */
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(from var(--primary) h s calc(l + 10%));
+}

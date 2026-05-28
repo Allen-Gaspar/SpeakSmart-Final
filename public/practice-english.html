@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice English - SPEAKSMART</title>
+    <meta name="description" content="Practice English speaking with AI-powered voice recognition and real-time feedback.">
+    <link rel="stylesheet" href="/styles/globals.css">
+</head>
+<body class="font-sans antialiased min-h-screen bg-background text-foreground">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 glass">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="/" class="flex items-center gap-2">
+                    <div class="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center glow-sm">
+                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xl font-bold gradient-text">SPEAKSMART</span>
+                </a>
+
+                <div class="hidden md:flex items-center gap-6">
+                    <a href="/languages.html" class="text-muted-foreground hover:text-foreground transition-colors">Languages</a>
+                    <a href="/lessons.html" class="text-muted-foreground hover:text-foreground transition-colors">Lessons</a>
+                    <a href="/leaderboard.html" class="text-muted-foreground hover:text-foreground transition-colors">Leaderboard</a>
+                    <div id="auth-nav" class="flex items-center gap-3"></div>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-secondary transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden glass border-t border-border">
+            <div class="px-4 py-4 space-y-3">
+                <a href="/languages.html" class="block px-3 py-2 rounded-lg hover:bg-secondary transition-colors">Languages</a>
+                <a href="/lessons.html" class="block px-3 py-2 rounded-lg hover:bg-secondary transition-colors">Lessons</a>
+                <a href="/leaderboard.html" class="block px-3 py-2 rounded-lg hover:bg-secondary transition-colors">Leaderboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="min-h-screen pt-24 pb-12 px-4">
+        <div class="max-w-4xl mx-auto">
+            <!-- Header -->
+            <div class="mb-8">
+                <a href="/dashboard.html" class="text-primary hover:underline mb-4 inline-block">← Back to Dashboard</a>
+                <h1 class="text-4xl font-bold mb-2">Practice English</h1>
+                <p class="text-muted-foreground">Speak and improve your English pronunciation</p>
+            </div>
+
+            <!-- Practice Area -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Main Practice -->
+                <div class="lg:col-span-2">
+                    <div class="glass rounded-3xl p-8">
+                        <!-- Phrase to Practice -->
+                        <div class="mb-8">
+                            <p class="text-sm text-muted-foreground mb-2">Practice this phrase:</p>
+                            <div class="text-3xl font-bold mb-4 text-balance">
+                                "Hello, how are you today?"
+                            </div>
+                            <p class="text-muted-foreground mb-4">
+                                This common greeting will help you practice natural pronunciation and intonation.
+                            </p>
+                        </div>
+
+                        <!-- Audio Playback -->
+                        <div class="mb-8 pb-8 border-b border-border">
+                            <p class="text-sm text-muted-foreground mb-3">Listen to native speaker:</p>
+                            <div class="flex gap-3">
+                                <button id="play-audio" class="flex-1 px-4 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-semibold flex items-center justify-center gap-2 glow">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"></path>
+                                    </svg>
+                                    Play Audio
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Recording Section -->
+                        <div class="mb-8">
+                            <p class="text-sm text-muted-foreground mb-3">Now, record yourself:</p>
+                            <div class="flex gap-3">
+                                <button id="start-recording" class="flex-1 px-4 py-3 rounded-lg bg-accent text-accent-foreground hover:bg-accent/90 transition-colors font-semibold flex items-center justify-center gap-2 glow">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4"></path>
+                                    </svg>
+                                    Start Recording
+                                </button>
+                                <button id="stop-recording" class="flex-1 px-4 py-3 rounded-lg bg-destructive text-destructive-foreground hover:bg-destructive/90 transition-colors font-semibold flex items-center justify-center gap-2 hidden">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H4zm0 2h12v12H4V4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    Stop Recording
+                                </button>
+                            </div>
+                            <div id="recording-status" class="mt-3 text-sm text-muted-foreground hidden">Recording...</div>
+                        </div>
+
+                        <!-- Results Section -->
+                        <div id="results" class="hidden">
+                            <h3 class="text-xl font-semibold mb-4">Your Performance</h3>
+                            <div class="space-y-4">
+                                <div class="p-4 rounded-lg bg-secondary/50">
+                                    <p class="text-sm text-muted-foreground mb-1">Pronunciation Accuracy</p>
+                                    <div class="flex items-center gap-3">
+                                        <div class="text-2xl font-bold gradient-text">92%</div>
+                                        <div class="flex-1 h-2 bg-secondary rounded-full overflow-hidden">
+                                            <div class="h-full bg-primary rounded-full" style="width: 92%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="p-4 rounded-lg bg-secondary/50">
+                                    <p class="text-sm text-muted-foreground mb-1">Fluency</p>
+                                    <div class="flex items-center gap-3">
+                                        <div class="text-2xl font-bold gradient-text">85%</div>
+                                        <div class="flex-1 h-2 bg-secondary rounded-full overflow-hidden">
+                                            <div class="h-full bg-accent rounded-full" style="width: 85%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="p-4 rounded-lg bg-secondary/50">
+                                    <p class="text-sm text-muted-foreground mb-2">Feedback</p>
+                                    <ul class="text-sm space-y-2">
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-primary">✓</span>
+                                            <span>Excellent pronunciation on the word "today"</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-accent">→</span>
+                                            <span>Try to speak more slowly on "how are you"</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <button id="next-phrase" class="w-full px-4 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-semibold mt-6 glow">
+                                    Next Phrase
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="space-y-6">
+                    <!-- Progress -->
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="font-semibold mb-4">Session Progress</h3>
+                        <div class="space-y-3">
+                            <div>
+                                <p class="text-sm text-muted-foreground mb-1">Phrases Completed</p>
+                                <p class="text-2xl font-bold gradient-text">3/10</p>
+                            </div>
+                            <div class="h-2 bg-secondary rounded-full overflow-hidden">
+                                <div class="h-full bg-primary rounded-full" style="width: 30%"></div>
+                            </div>
+                            <p class="text-xs text-muted-foreground">7 phrases remaining</p>
+                        </div>
+                    </div>
+
+                    <!-- Accent Selector -->
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="font-semibold mb-4">Accent</h3>
+                        <select id="accent-select" class="w-full px-3 py-2 rounded-lg bg-input border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-colors">
+                            <option value="american">American English</option>
+                            <option value="british">British English</option>
+                            <option value="australian">Australian English</option>
+                            <option value="canadian">Canadian English</option>
+                        </select>
+                    </div>
+
+                    <!-- Tips -->
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="font-semibold mb-4">Tips for Success</h3>
+                        <ul class="text-sm text-muted-foreground space-y-3">
+                            <li class="flex gap-2">
+                                <span>💡</span>
+                                <span>Speak clearly and naturally</span>
+                            </li>
+                            <li class="flex gap-2">
+                                <span>🎯</span>
+                                <span>Focus on pronunciation</span>
+                            </li>
+                            <li class="flex gap-2">
+                                <span>🎧</span>
+                                <span>Listen first, then repeat</span>
+                            </li>
+                            <li class="flex gap-2">
+                                <span>⏱️</span>
+                                <span>Practice daily for best results</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-border bg-card/50 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
+            <p class="text-sm text-muted-foreground">
+                2026 SPEAKSMART. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="/js/navbar.js"></script>
+    <script src="/js/auth-manager.js"></script>
+    <script src="/js/speech-recognition.js"></script>
+    <script>
+        let isRecording = false;
+
+        document.getElementById('start-recording').addEventListener('click', () => {
+            console.log("[v0] Starting speech recording");
+            isRecording = true;
+            document.getElementById('start-recording').classList.add('hidden');
+            document.getElementById('stop-recording').classList.remove('hidden');
+            document.getElementById('recording-status').classList.remove('hidden');
+        });
+
+        document.getElementById('stop-recording').addEventListener('click', () => {
+            console.log("[v0] Stopping speech recording");
+            isRecording = false;
+            document.getElementById('start-recording').classList.remove('hidden');
+            document.getElementById('stop-recording').classList.add('hidden');
+            document.getElementById('recording-status').classList.add('hidden');
+            
+            // Show results
+            document.getElementById('results').classList.remove('hidden');
+        });
+
+        document.getElementById('play-audio').addEventListener('click', () => {
+            console.log("[v0] Playing native speaker audio");
+            // In a real app, this would play an audio file
+            alert('Playing native speaker pronunciation...');
+        });
+
+        document.getElementById('next-phrase').addEventListener('click', () => {
+            console.log("[v0] Moving to next phrase");
+            alert('Loading next phrase...');
+        });
+
+        // Check authentication
+        window.addEventListener('load', () => {
+            const user = JSON.parse(localStorage.getItem('speaksmart_user') || '{}');
+            if (!user.uid) {
+                window.location.href = '/login.html';
+            }
+        });
+    </script>
+</body>
+</html>

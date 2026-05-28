@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPEAKSMART - AI-Powered Voice Language Learning</title>
+    <meta name="description" content="Master any language with AI-powered voice recognition, accent training, and personalized lessons. Learn 10+ languages with native accents from around the world.">
+    <meta name="theme-color" content="#7c3aed">
+    <link rel="stylesheet" href="/styles/globals.css">
+</head>
+<body class="font-sans antialiased min-h-screen bg-background text-foreground">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 glass">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <a href="/" class="flex items-center gap-2">
+                    <div class="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center glow-sm">
+                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xl font-bold gradient-text">SPEAKSMART</span>
+                </a>
+
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center gap-6">
+                    <a href="/languages.html" class="text-muted-foreground hover:text-foreground transition-colors">Languages</a>
+                    <a href="/lessons.html" class="text-muted-foreground hover:text-foreground transition-colors">Lessons</a>
+                    <a href="/leaderboard.html" class="text-muted-foreground hover:text-foreground transition-colors">Leaderboard</a>
+                    <div id="auth-nav" class="flex items-center gap-3">
+                        <a href="/login.html">
+                            <button class="px-4 py-2 rounded-lg hover:bg-secondary transition-colors">Sign In</button>
+                        </a>
+                        <a href="/register.html">
+                            <button class="px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors glow-sm">Get Started</button>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-secondary transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden glass border-t border-border">
+            <div class="px-4 py-4 space-y-3">
+                <a href="/languages.html" class="block px-3 py-2 rounded-lg hover:bg-secondary transition-colors">Languages</a>
+                <a href="/lessons.html" class="block px-3 py-2 rounded-lg hover:bg-secondary transition-colors">Lessons</a>
+                <a href="/leaderboard.html" class="block px-3 py-2 rounded-lg hover:bg-secondary transition-colors">Leaderboard</a>
+                <div class="flex flex-col gap-2 pt-2">
+                    <a href="/login.html">
+                        <button class="w-full px-4 py-2 rounded-lg hover:bg-secondary transition-colors">Sign In</button>
+                    </a>
+                    <a href="/register.html">
+                        <button class="w-full px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors glow-sm">Get Started</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="min-h-screen pt-16">
+        <!-- Hero Section -->
+        <section class="relative pt-32 pb-20 px-4 overflow-hidden">
+            <!-- Background Effects -->
+            <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/10 rounded-full blur-3xl"></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto relative">
+                <div class="text-center max-w-4xl mx-auto">
+                    <!-- Badge -->
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
+                        <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                        </svg>
+                        <span class="text-sm text-primary font-medium">AI-Powered Language Learning</span>
+                    </div>
+
+                    <!-- Heading -->
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                        <span class="text-balance block">Master Any Language with</span>
+                        <span class="gradient-text block">Voice Recognition AI</span>
+                    </h1>
+
+                    <!-- Subheading -->
+                    <p class="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto text-pretty">
+                        Practice speaking with real-time AI feedback, learn authentic accents from 10+ countries, 
+                        and track your progress with personalized lessons.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                        <a href="/register.html">
+                            <button class="px-8 py-6 text-lg rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors glow flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4"></path>
+                                </svg>
+                                Start Learning Free
+                            </button>
+                        </a>
+                        <a href="/login.html">
+                            <button class="px-8 py-6 text-lg rounded-lg border border-border hover:bg-secondary transition-colors">
+                                Sign In
+                            </button>
+                        </a>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
+                        <div class="glass rounded-2xl p-6 text-center">
+                            <div class="text-3xl font-bold gradient-text mb-1">10+</div>
+                            <div class="text-sm text-muted-foreground">Languages</div>
+                        </div>
+                        <div class="glass rounded-2xl p-6 text-center">
+                            <div class="text-3xl font-bold gradient-text mb-1">25+</div>
+                            <div class="text-sm text-muted-foreground">Accents</div>
+                        </div>
+                        <div class="glass rounded-2xl p-6 text-center">
+                            <div class="text-3xl font-bold gradient-text mb-1">AI</div>
+                            <div class="text-sm text-muted-foreground">Feedback</div>
+                        </div>
+                        <div class="glass rounded-2xl p-6 text-center">
+                            <div class="text-3xl font-bold gradient-text mb-1">100%</div>
+                            <div class="text-sm text-muted-foreground">Free</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floating Icons -->
+                <div class="hidden lg:block">
+                    <div class="absolute top-40 left-10 w-16 h-16 glass rounded-2xl flex items-center justify-center animate-bounce" style="animation-duration: 3s">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h.5A2.5 2.5 0 0016 5.5V3.935m0 2v5.5a2 2 0 01-2 2H8a2 2 0 01-2-2v-5.5m16 0a2 2 0 00-2-2h-.5a2 2 0 00-2 2v5.5a2 2 0 01-4 0v-5.5a2 2 0 00-2-2h-.5a2 2 0 00-2 2v5.5a2 2 0 01-4 0v-5.5"></path>
+                        </svg>
+                    </div>
+                    <div class="absolute top-60 right-10 w-16 h-16 glass rounded-2xl flex items-center justify-center animate-bounce" style="animation-duration: 2.5s; animation-delay: 0.5s">
+                        <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728m-.9-10.607a3 3 0 010 4.243M9.172 9.172L5.364 5.364m5.656 0a9 9 0 012.828 0l5.656 5.656m0 5.656l3.536 3.536M9.172 9.172a3 3 0 014.243 0"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-20 px-4">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+                        <span class="text-balance">Why Choose </span>
+                        <span class="gradient-text">SPEAKSMART</span>
+                    </h2>
+                    <p class="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
+                        Our AI-powered platform combines cutting-edge voice recognition with proven learning methods 
+                        to help you speak any language with confidence.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Feature 1 -->
+                    <div class="glass rounded-2xl p-6 hover:bg-card/90 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Voice Recognition</h3>
+                        <p class="text-muted-foreground">Practice speaking with advanced speech-to-text technology that analyzes your pronunciation in real-time.</p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="glass rounded-2xl p-6 hover:bg-card/90 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5.36 4.464l-.707.707M9.172 9.172L8.465 8.465m5.656-5.656l.707-.707"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">AI Pronunciation Scoring</h3>
+                        <p class="text-muted-foreground">Get instant feedback on accuracy, fluency, and completeness using machine learning algorithms.</p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="glass rounded-2xl p-6 hover:bg-card/90 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h.5A2.5 2.5 0 0016 5.5V3.935m0 2v5.5a2 2 0 01-2 2H8a2 2 0 01-2-2v-5.5m16 0a2 2 0 00-2-2h-.5a2 2 0 00-2 2v5.5a2 2 0 01-4 0v-5.5a2 2 0 00-2-2h-.5a2 2 0 00-2 2v5.5a2 2 0 01-4 0v-5.5"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">25+ Regional Accents</h3>
+                        <p class="text-muted-foreground">Learn authentic accents from native speakers across the world - American, British, Australian, and more.</p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="glass rounded-2xl p-6 hover:bg-card/90 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Progress Tracking</h3>
+                        <p class="text-muted-foreground">Monitor your learning journey with detailed analytics, streak tracking, and performance insights.</p>
+                    </div>
+
+                    <!-- Feature 5 -->
+                    <div class="glass rounded-2xl p-6 hover:bg-card/90 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Gamification</h3>
+                        <p class="text-muted-foreground">Earn XP, unlock achievements, and compete on global leaderboards to stay motivated.</p>
+                    </div>
+
+                    <!-- Feature 6 -->
+                    <div class="glass rounded-2xl p-6 hover:bg-card/90 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3v-6"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Instant Feedback</h3>
+                        <p class="text-muted-foreground">Receive immediate AI-powered feedback on your pronunciation to improve faster.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 px-4 bg-card/30">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="glass rounded-3xl p-8 sm:p-12 glow">
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-balance">
+                        Ready to Start Your Language Journey?
+                    </h2>
+                    <p class="text-lg text-muted-foreground mb-8 max-w-xl mx-auto text-pretty">
+                        Join thousands of learners who are mastering new languages with SPEAKSMART&apos;s 
+                        AI-powered voice recognition technology.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="/register.html">
+                            <button class="px-8 py-6 text-lg rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors glow flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4"></path>
+                                </svg>
+                                Start Learning Free
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                                </svg>
+                            </button>
+                        </a>
+                        <p class="text-sm text-muted-foreground">No credit card required</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-border bg-card/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div class="md:col-span-1">
+                    <a href="/" class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
+                            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4"></path>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold gradient-text">SPEAKSMART</span>
+                    </a>
+                    <p class="text-sm text-muted-foreground">
+                        AI-powered voice language learning platform. Master any language with personalized accent training.
+                    </p>
+                </div>
+
+                <!-- Languages -->
+                <div>
+                    <h4 class="font-semibold mb-4">Languages</h4>
+                    <ul class="space-y-2 text-sm text-muted-foreground">
+                        <li><a href="/practice-english.html" class="hover:text-foreground transition-colors">English</a></li>
+                        <li><a href="/practice-spanish.html" class="hover:text-foreground transition-colors">Spanish</a></li>
+                        <li><a href="/practice-french.html" class="hover:text-foreground transition-colors">French</a></li>
+                        <li><a href="/practice-german.html" class="hover:text-foreground transition-colors">German</a></li>
+                        <li><a href="/languages.html" class="hover:text-foreground transition-colors">View All</a></li>
+                    </ul>
+                </div>
+
+                <!-- Features -->
+                <div>
+                    <h4 class="font-semibold mb-4">Features</h4>
+                    <ul class="space-y-2 text-sm text-muted-foreground">
+                        <li><a href="/lessons.html" class="hover:text-foreground transition-colors">Lessons</a></li>
+                        <li><a href="/leaderboard.html" class="hover:text-foreground transition-colors">Leaderboard</a></li>
+                        <li><a href="/dashboard.html" class="hover:text-foreground transition-colors">Progress Tracking</a></li>
+                        <li><a href="/profile.html" class="hover:text-foreground transition-colors">Achievements</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm text-muted-foreground">
+                        <li><a href="/about.html" class="hover:text-foreground transition-colors">About</a></li>
+                        <li><a href="/contact.html" class="hover:text-foreground transition-colors">Contact</a></li>
+                        <li><a href="/privacy.html" class="hover:text-foreground transition-colors">Privacy Policy</a></li>
+                        <li><a href="/terms.html" class="hover:text-foreground transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-sm text-muted-foreground">
+                    2026 SPEAKSMART. All rights reserved.
+                </p>
+                <div class="flex items-center gap-4">
+                    <span class="text-sm text-muted-foreground">
+                        Built with AI-powered voice recognition
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/js/navbar.js"></script>
+    <script src="/js/auth-manager.js"></script>
+</body>
+</html>

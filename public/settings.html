@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - SPEAKSMART</title>
+    <link rel="stylesheet" href="/styles/globals.css">
+</head>
+<body class="font-sans antialiased min-h-screen bg-background text-foreground">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 glass">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="/" class="flex items-center gap-2">
+                    <div class="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center glow-sm">
+                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xl font-bold gradient-text">SPEAKSMART</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="min-h-screen pt-24 pb-12 px-4">
+        <div class="max-w-2xl mx-auto">
+            <a href="/profile.html" class="text-primary hover:underline mb-6 inline-block">← Back</a>
+            <h1 class="text-4xl font-bold mb-8">Settings</h1>
+
+            <div class="glass rounded-2xl p-8 space-y-6">
+                <div>
+                    <h3 class="font-semibold mb-3">Notifications</h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center gap-3">
+                            <input type="checkbox" checked class="rounded" />
+                            <span>Daily practice reminders</span>
+                        </label>
+                        <label class="flex items-center gap-3">
+                            <input type="checkbox" checked class="rounded" />
+                            <span>Achievement notifications</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="border-t border-border pt-6">
+                    <h3 class="font-semibold mb-3">Privacy</h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center gap-3">
+                            <input type="checkbox" checked class="rounded" />
+                            <span>Show on leaderboard</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button class="w-full px-4 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-semibold glow">
+                    Save Settings
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="/js/navbar.js"></script>
+</body>
+</html>
